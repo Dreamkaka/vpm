@@ -1,0 +1,18 @@
+{
+  "name": "com.xiaohan.assets",
+  "displayName": "com.xiaohan.assets",
+  "version": "1.0.0",
+  "description": "Just a package of project assets for easy migration",
+  "dependencies": {},
+  "gitDependencies": {},
+  "vpmDependencies": {
+    "com.vrchat.worlds": "3.5.0"
+  },
+  "author": {
+    "name": "xiaohan",
+    "email": "dreamkaka457@gmail.com"
+  },
+  "legacyFolders": {},
+  "legacyFiles": {},
+  "localPath": "D:\\map\\map\\Packages\\com.xiaohan.assets"
+}
