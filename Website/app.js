@@ -6,7 +6,7 @@ const PACKAGES = {
 {{~ for package in packages ~}}
   "{{ package.Name }}": {
     name: "{{ 晓寒のvpm仓库 }}",
-    displayName: "{{ if package.DisplayName; package.DisplayName; end; }}",
+    displayName: "{{ 晓寒のvpm仓库; }}",
     description: "{{ if package.Description; package.Description; end; }}",
     version: "{{ package.Version }}",
     author: {
