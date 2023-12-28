@@ -1,6 +1,6 @@
 name: Build Release
 
-on:
+on: 
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
     - name: Validate Package Config
       id: config_package
       run: |
-        if [ "${{ vars.PACKAGE_NAMES }}" != "" ]; then
+        if [ "${{ vars.PACKAGE_NAME }}" != "" ]; then
           echo "configPackage=true" >> $GITHUB_OUTPUT;
         else
           echo "configPackage=false" >> $GITHUB_OUTPUT;
@@ -30,7 +30,7 @@ jobs:
     permissions:
       contents: write
     env:
-      packageNames: "${{ vars.PACKAGE_NAMES }}"
+      packagePath: Packages/${{ vars.PACKAGE_NAME }}
     if: needs.config.outputs.config_package == 'true'
     steps:
 
@@ -46,16 +46,12 @@ jobs:
             file_path: "${{ env.packagePath }}/package.json"
             prop_path: "version"
     
-  # Configure the Environment Variables needed for releasing the Package
+      # Configure the Environment Variables needed for releasing the Package
       - name: Set Environment Variables
         run: |
-          IFS=',' read -ra PACKAGES <<< "${{ env.packageNames }}"
-          for PACKAGE in "${PACKAGES[@]}"; do
-            echo "zipFile=${PACKAGE}-${{ steps.version.outputs.value }}.zip" >> $GITHUB_ENV
-            echo "unityPackage=${PACKAGE}-${{ steps.version.outputs.value }}.unitypackage" >> $GITHUB_ENV
-            echo "version=${{ steps.version.outputs.value }}" >> $GITHUB_ENV
-          done
-
+          echo "zipFile=${{ vars.PACKAGE_NAME }}-${{ steps.version.outputs.value }}".zip >> $GITHUB_ENV
+          echo "unityPackage=${{ vars.PACKAGE_NAME }}-${{ steps.version.outputs.value }}.unitypackage" >> $GITHUB_ENV
+          echo "version=${{ steps.version.outputs.value }}" >> $GITHUB_ENV
 
       # Zip the Package for release
       - name: Create Package Zip
