@@ -1,0 +1,19 @@
+{
+    "name": "Varneon.VUdon.MusicPlayer.Runtime",
+    "references": [
+        "UdonSharp.Runtime",
+        "VRC.Udon",
+        "Varneon.VUdon.Logger.Runtime",
+        "Varneon.VUdon.Editors.Runtime",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
